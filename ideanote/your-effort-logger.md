@@ -20,5 +20,8 @@
 | Engel   | ひたすら褒めてくれるモード 
 | Demon   | ひらすらダメ人間になるよう誘惑してくるモード
 | Milady  | 休憩を促すが、休憩するとバカにしてくるモード
-  
-  
+
+## App image (draft)
+
+![](./img/app_image.png)
+
