@@ -11,6 +11,7 @@
   - Notification func.
   - Categorize func.
 - Additional functions : 
+  - Your effots can be posted to SNS
   - Some mode select
 
 |Mode|Brief explanation|
@@ -19,4 +20,5 @@
 | Engel   | ひたすら褒めてくれるモード 
 | Demon   | ひらすらダメ人間になるよう誘惑してくるモード
 | Milady  | 休憩を促すが、休憩するとバカにしてくるモード
-
+  
+  
