@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
@@ -9,7 +7,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
     return MaterialApp(
       title: 'Flutter Tutorial-1',
       home: Scaffold(
@@ -17,11 +14,22 @@ class MyApp extends StatelessWidget {
           title: Text('Flutter Tutorial-1'),
         ),
         body: Center(
-          //child: Text('Hello Flutter!'),
-          child: Text(wordPair.asPascalCase),
+          child: RandomWords(),
         ),
       ),
     );
   }
 }
 
+class RandomWords extends StatefulWidget {
+  @override
+  _RandomWordsState createState() => _RandomWordsState();
+}
+
+class _RandomWordsState extends State<RandomWords> {
+  @override 
+  Widget build(BuildContext context) {
+    final wordPair = WordPair.random();
+    return Text(wordPair.asPascalCase);
+  }
+}
