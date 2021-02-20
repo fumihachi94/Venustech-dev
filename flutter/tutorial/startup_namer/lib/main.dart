@@ -82,42 +82,9 @@ class _RandomWordsState extends State<RandomWords> {
         backgroundColor: Colors.blueGrey,
       ),
       backgroundColor: Colors.white,
-      // Main contents
+      // ==== Main contents ====
       // body: _buildSuggestions(), 
-      body: Column(
-        children: <Widget>[ 
-          Container(
-            height: 70.0,
-            width: double.infinity,
-            color: Colors.blueGrey,
-            padding: EdgeInsets.all(10.0),
-            margin: EdgeInsets.all(10.0),
-            child: Center(
-              child : Text(
-                'Test', 
-                style: TextStyle(
-                  fontFamily: 'OpenSans',
-                  fontSize: 40,
-                ),
-              ),
-            ),
-          ),
-          SwitchListTile(
-              value: _active,
-              activeColor: Colors.orange,
-              activeTrackColor: Colors.red,
-              inactiveThumbColor: Colors.blue,
-              inactiveTrackColor: Colors.grey,
-              secondary: new Icon(
-                Icons.thumb_up,
-                color: _active ? Colors.orange[700] : Colors.grey[500],
-                size: 50.0,
-              ),
-              title: Text('Like'),
-              onChanged: _changeSwitch,
-            ),
-        ],
-      ),
+      body: HomeBody(),
       drawer: Drawer(
         child: Center(child: Text('Drawer sample')),
       ),
@@ -137,6 +104,77 @@ class _RandomWordsState extends State<RandomWords> {
           ),
         ],
       ),
+    );
+  }
+}
+
+
+class HomeBody extends StatefulWidget {
+  @override
+  State<HomeBody> createState() => _HomeBody();
+}
+
+class _HomeBody extends State<HomeBody> {
+  bool _act_stopwatch = false;
+  bool _act_timer = false;
+  void _changeSwitch1(bool e) => setState((){
+     _act_stopwatch = e; 
+     _act_timer = !e;
+  });
+  void _changeSwitch2(bool e) => setState((){
+     _act_timer = e; 
+     _act_stopwatch = !e;
+  });
+
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[ 
+          Container(
+            height: 70.0,
+            width: double.infinity,
+            color: Colors.blueGrey,
+            padding: EdgeInsets.all(10.0),
+            margin: EdgeInsets.all(10.0),
+            child: Center(
+              child : Text(
+                'Test', 
+                style: TextStyle(
+                  fontFamily: 'OpenSans',
+                  color: Colors.white,
+                  fontSize: 40,
+                ),
+              ),
+            ),
+          ),
+          SwitchListTile(
+              value: _act_stopwatch,
+              activeColor: Colors.blue,
+              activeTrackColor: Colors.green,
+              inactiveThumbColor: Colors.blue,
+              inactiveTrackColor: Colors.grey,
+              secondary: new Icon(
+                Icons.timer,
+                color: _act_stopwatch ? Colors.orange[700] : Colors.grey[500],
+                size: 50.0,
+              ),
+              title: Text('Stop watch'),
+              onChanged: _changeSwitch1,
+            ),
+            SwitchListTile(
+              value: _act_timer,
+              activeColor: Colors.blue,
+              activeTrackColor: Colors.lightGreen,
+              inactiveThumbColor: Colors.blue,
+              inactiveTrackColor: Colors.grey,
+              secondary: new Icon(
+                Icons.access_time_outlined,
+                color: _act_timer ? Colors.orange[700] : Colors.grey[500],
+                size: 50.0,
+              ),
+              title: Text('Timer'),
+              onChanged: _changeSwitch2,
+            ),
+        ],
     );
   }
 }
